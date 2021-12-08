@@ -1,2 +1,2 @@
 # bloge
-bloger website with html css  php mysql
+bloger website with html, css ,javascript ,php, mysql
