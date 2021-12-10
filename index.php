@@ -1,7 +1,7 @@
 
 
 <?php include_once('templat/header.php');?>
-
+ 
 <?php 
     include_once('database/post_model.php');
     //pagation
@@ -24,65 +24,6 @@
     //////////all data //////////////
 ?>
 
-<!-- section -->
-<!-- <div class="img_section">
-    <div class="imag_1" style="overflow: hidden;">
-
-        <div class="imag_1_img" style="background: url('img/posts/n.jpg');background-size:cover; "></div>
-        <div class="info1">
-            <div class="p_category">
-                <a href="home1.html">sport</a>
-            </div>
-            <h3 class="post_title">
-                <a href="">download call of duty black ops 4</a>
-            </h3>
-            <ul class="post_info">
-                <li><a href="http://">MOHAMMED</a></li>
-                <li style="margin-left: 13px;">10 JUL 2018</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="imag_2">
-        <div class="imag_2_img1" style=" overflow: hidden;">
-            <div class="imag_2_img1_img" style="background: url('img/posts/n.jpg');background-size:cover;"> </div>
-            <div class="info2">
-                <div class="p_category">
-                        <div class="p_category">
-                                <a href="home1.html">sport</a>
-                            </div>
-                            <h3 class="post_title">
-                                <a href="">download call of duty black ops 4</a>
-                            </h3>
-                            <ul class="post_info">
-                                <li><a href="http://">MOHAMMED</a></li>
-                                <li style="margin-left: 13px;">10 JUL 2018</li>
-                            </ul>
-                </div>
-            </div>
-        </div>
-        <div class="imag_2_img2" style="overflow: hidden;">
-            <div class="imag_2_img2_img" style="background: url('img/posts/n.jpg');background-size:cover;"></div>
-            <div class="info3">
-                <div class="p_category">
-                        <div class="p_category">
-                                <a href="home1.html">sport</a>
-                            </div>
-                            <h3 class="post_title">
-                                <a href="">download call of duty black ops 4</a>
-                            </h3>
-                            <ul class="post_info">
-                                <li><a href="http://">MOHAMMED</a></li>
-                                <li style="margin-left: 13px;">10 JUL 2018</li>
-                            </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div> -->
-<!-- section -->
-
 
 <br>
 <br>
@@ -94,13 +35,13 @@
     <div class="web_post">
     
         <!-- post title -->
-        <div class="post_cat">
+        <!-- <div class="post_cat">
             <div class="section_title">
                 <h2 class="title">
                     all post
                 </h2>
             </div>
-        </div>
+        </div> -->
         <!-- post title -->
        
         <!-- ALL POSTS -->

@@ -1,5 +1,9 @@
 
-<?php include_once('../template/header.php');?>
+
+
+
+<?php include_once('../temp/header.php');?>
+
 <?php
     if(isset($_POST['submit']))
     {
@@ -112,7 +116,6 @@
         }
     }
 ?>
-
 <!-- ////////////[get add info cate tags for addd]////////////// -->
 <?php 
     // Check connection
@@ -132,95 +135,106 @@
 
     //////////all data //////////////
 ?>
-<!-- ////////////[form error]////////////// -->
+<!--  Details List -->
+<div class="details" style="grid-template-columns: repeat(1,1fr);" onload="enableediter();">
+    <!-- order Details List -->
+    <!-- ////////////[form error]////////////// -->
 
-<?php 
-    // عرض رسالة للمستخدم عند الخطا
+    <?php 
+        // عرض رسالة للمستخدم عند الخطا
 
-    if(isset($_SESSION['add_error']))
-    {
-        echo '<p style="font-family: cursive;background-color: #81c75d;padding: 10px 0px;text-align: center;color: #fff;">
+        if(isset($_SESSION['add_error']))
+        {
+        echo '<p style="font-family: cursive;background-color: #81c75d;padding: 10px 0px;text-align: center;color: #000;">
         '.$_SESSION['add_error'].
         '</p>';  
         unset($_SESSION['add_error']);     
-        
-    }             
-?>
-<div style="background:#343a40;padding: 20px 0px;" onload="enableediter();">
-<form action="" method="post" enctype="multipart/form-data">
-    <label class="p_label" style="display: inline;color: #ee4266;margin-left: 5px;">Post Title</label>
-    <input type="text" name="title" class="btn_input" >
-    <br>
-    <br>
-    <br>
 
-    <label class="p_label" style="display: inline;color: #ee4266;margin-left: 5px;">Post Content</label>
-    
-    <!-- <div class="t_edit_e">
-        <span onclick="change_op('bold')"><img src="../../img/admin/bold.png" style="width: 16px;"></span>
-        <span onclick="change_op('underline')"><img src="../../img/admin/underline.png" style="width: 16px;"></span>
-    </div> -->
+        }             
+    ?>
+    <div class="recentorder">
+            <div class="cardHeader">
+                <h2>Add Posts</h2>
+                <div class="btn_c">
+                    <a href="show.php" class="btn"><ion-icon name="arrow-back"></ion-icon> Back</a>
+                </div>
+            
+            </div>
+                <div class="cont_container">
+                    <div class="cont_content">
+                        <div class="right-side">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="input-box">
+                                <input type="text" name="title" placeholder="Enter Post tite"/>
+                            </div>
+                            <br>
+                            <div class="input-box">
+                                <input type="text" name="category" id="b_value" placeholder="chose Category..." class="btn_input"  onclick="show_option()">
+                                
+                            </div>
+                            <div class="option" id="list">
+                                    <?php
 
-    <textarea name="content" id="editor" style="margin-top: 5px;height: 100px;display: inline;color: #ee4266;padding: 0px; margin-left: 5px;" class="input"  placeholder="Message.....">
-    </textarea>
-    <!-- <div id="editor2">
+                                        while($cate=$categories->fetch_assoc())
+                                        {
+                                        echo'
+                                                <p onclick="get_value('.$cate["c_id"].')" class="p_o" value='.$cate["c_id"].'>
+                                                    '. $cate["c_title"].'
+                                                </p>
+                                                <hr>
+                                            ';
+                                        }
+                                    ?>
+                                </div>
+                            <br>
+                            <div class="input-box" style="height: auto;">
+                                <textarea name="content" id="editor" style="margin-top: 5px;height: 100px;display: inline;color: #ee4266;padding: 0px; margin-left: 5px;" class="input"  placeholder="Message.....">
+                                </textarea>
+                            </div>
+                            <br>
 
-    </div> -->
+                            <div class="input-box">
+                                <input type="text" name="tagee" id="b_value2"  class="btn_input2" placeholder="chose Tage..." onclick="show_option2()">
+                                
+                            </div>
+                            <div class="option2" id="list2">
+                                    <?php
 
-    <br>
-    <br>
-    <br>
-    <label class="p_label" style="display: inline;color: #ee4266;margin-left: 5px;">Post Category</label>
-    <input type="text" name="category" id="b_value" placeholder="chose Category..." class="btn_input"  onclick="show_option()">
-     <div class="option" id="list">
-        <?php
+                                        while($tag=$tags->fetch_assoc())
+                                        {
+                                            $name='\''.$tag["t_name"].'\'';
+                                        echo'
+                                            <span class="s_list">'.$tag["t_name"].' </span>  <input type="checkbox" id="vehicle1" onclick="get_value2('.$name.')" class="p_o" name="tage" value="'.$tag["t_id"].'">
 
-            while($cate=$categories->fetch_assoc())
-            {
-            echo'
-                    <p onclick="get_value('.$cate["c_id"].')" class="p_o" value='.$cate["c_id"].'>
-                        '. $cate["c_title"].'
-                    </p>
-                    <hr>
-                ';
-            }
-        ?>
+                                                <hr>
+                                            ';
+                                        }
+                                    ?>
+                            
+                                </div>
+                            <br>
+
+                            <div class="input-box">
+                                <input type="file" style="line-height: 3rem;" name="fileToUpload" id="fileToUpload">
+                            </div>
+                            <br>
+
+                            <div class="cont_button">
+                                <input type="submit" name="submit" value="ADD Post" />
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+
+
+        </div>
+
     </div>
-    <br>
-    <br>
-    <br>
-    <label class="p_label" style="display: inline;color: #ee4266;margin-left: 5px;">Post Tags</label>
-    <input type="text" name="tagee" id="b_value2"  class="btn_input2" placeholder="chose Tage..." onclick="show_option2()">
-     <div class="option2" id="list2">
-        <?php
-
-            while($tag=$tags->fetch_assoc())
-            {
-                $name='\''.$tag["t_name"].'\'';
-            echo'
-                  <span class="s_list">'.$tag["t_name"].' </span>  <input type="checkbox" id="vehicle1" onclick="get_value2('.$name.')" class="p_o" name="tage" value="'.$tag["t_id"].'">
-
-                    <hr>
-                ';
-            }
-        ?>
-    </div>
-    <br>
-    <br>
-    <br>
-    <label class="p_label" style="display: inline;color: #ee4266; margin-left: 5px;">Post Image</label>
-    <input type="file" style="color: #ee4266;" name="fileToUpload" id="fileToUpload">
-    <br>
-    <br>
-    <br>
-    <input type="submit"   name="submit" value="ADD Post" class="btn_submit">
-</form> 
-</div>
 <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('content')
 </script>
 <script type='text/javascript' src="../../js/text_editer.js"></script>
 <script type='text/javascript' src="../../js/option.js"></script>
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+<?php include_once('../temp/footer.php');?>

@@ -39,7 +39,7 @@ if(isset($_SESSION['u_id'],$_SESSION['name'],$_SESSION['uname'], $_SESSION['upas
 	<script src="js/jquery-3.4.1.min.js"></script>
     <script type='text/javascript' src="js/dark.js"></script>
     
-    <title>Document</title>
+    <title>Blog</title>
 </head>
 <body id="body_id">
 

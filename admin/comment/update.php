@@ -1,4 +1,4 @@
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 
 
 <?php
@@ -82,6 +82,17 @@ if(isset($_POST['submit']))
            $comm = $comm_one->fetch_assoc();
            echo
            '
+           <div class="details" style="grid-template-columns: repeat(1,1fr);">
+           <div class="recentorder">
+                <div class="cardHeader">
+                    <h2>Update Comment</h2>
+                    <div class="btn_c">
+                        <a href="add.php" class="btn"><ion-icon name="add"></ion-icon> Category</a>
+                    </div>
+                 
+                </div>
+                
+            <br>
            <p class="p_comm"> <span style="color:#ee4266;">Person Name : </span>'.$comm["co_name"].'</p>
            <p class="p_comm"> <span style="color:#ee4266;">Post Title : </span>'.$comm["p_title"].'</p>
            <p class="p_comm"> <span style="color:#ee4266;">Comment content : </span>'.$comm["co_content"].'</p>
@@ -103,12 +114,14 @@ if(isset($_POST['submit']))
                 <br>
                 <br>
 
-                <textarea name="content" id="" class="input"  placeholder="Message.....">
+                <textarea name="content" id="" style="height:150px;" class="btn_input"  placeholder="Message.....">
                 </textarea>
                 <br>
                 <br>
                 <input type="submit"   name="submit" value="REPLAY" class="btn_submit">
             </form> 
+        </div>
+
            ';
 
        }
@@ -127,8 +140,6 @@ if(isset($_POST['submit']))
         exit;
    }
 ?>
-
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+<?php include_once('../temp/footer.php');?>
 
 

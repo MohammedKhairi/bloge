@@ -5,7 +5,7 @@
         $sql = "SELECT c_title , c_id , COUNT(posts.p_id) AS number_c 
         FROM category
         INNER JOIN posts
-        ON category.c_id = posts.p_c_id GROUP BY (posts.p_c_id) ";
+        ON category.c_id = posts.p_c_id  GROUP BY (posts.p_c_id) ";
         $result = $conn->query($sql);
         return $result;
     } 

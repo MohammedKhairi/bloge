@@ -12,6 +12,19 @@
         $result = $conn->query($sql);
         return $result;
     }  
+    //home page select post
+    function select_posts_admin($item,$tb_name,$conn,$page)
+    {
+        $post_per_page=2;
+        $limit_page=($page-1)*$post_per_page;
+
+        $sql = "SELECT".$item.
+        "FROM ".$tb_name.
+        " INNER JOIN category ON posts.p_c_id = category.c_id ORDER BY p_id DESC ".
+        "LIMIT ".$limit_page.", ".$post_per_page."";
+        $result = $conn->query($sql);
+        return $result;
+    }  
     //// home page get number of posts
     function num_posts($item,$conn)
     {
@@ -82,11 +95,12 @@
          return $result;
      }
      //
-     function select_all_post($conn,$item)
+     function select_all_post($conn,$item,$num)
     {
         $sql = "SELECT ".$item.
         " FROM posts ORDER BY p_id DESC 
-          LIMIT 10 ";
+        LIMIT ".$num."
+        ";
         $result = $conn->query($sql);
         return $result;
     }  
@@ -224,5 +238,40 @@
         } 
 
     }
+    //// get number of all posts
+    function number_posts($item,$conn)
+    {
+        $sql = "SELECT ".$item.
+        " FROM posts";
+        $result = $conn->query($sql);
+        return $result->num_rows;
 
+    }
+    //// get number of all comment
+    function number_comments($item,$conn)
+    {
+        $sql = "SELECT ".$item.
+        " FROM comments WHERE co_state=0 ";
+        $result = $conn->query($sql);
+        return $result->num_rows;
+
+    }
+     //// get number of all comment
+     function number_message($item,$conn)
+     {
+         $sql = "SELECT ".$item.
+         " FROM u_message WHERE m_state=0";
+         $result = $conn->query($sql);
+         return $result->num_rows;
+ 
+     }
+      //// get number of all comment
+    function number_categories($item,$conn)
+    {
+        $sql = "SELECT ".$item.
+        " FROM category";
+        $result = $conn->query($sql);
+        return $result->num_rows;
+
+    }
 ?>

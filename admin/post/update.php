@@ -1,4 +1,4 @@
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 
 <?php
    if(isset($_GET['type']))
@@ -53,7 +53,8 @@
             $tags=select_tags($conn);
             $conn->close();
            echo
-           '<div style="background:#343a40;padding: 20px 0px;">
+           '<div class="details" style="grid-template-columns: repeat(1,1fr);" onload="enableediter();"">
+           <div class="recentorder">
            ';
            ///print error
            if(isset($_SESSION['edit_error']))
@@ -65,7 +66,7 @@
                 } 
            echo'
             <form action="edit.php?p='.$_GET['p'].' &p_type=title" method="post" enctype="multipart/form-data">
-                    <label class="p_label" style="color:#ee4266;width: 150px;">Post Title</label>
+                    <label class="p_label" >Post Title</label>
                     <input type="text" name="title" class="btn_input" value="'.$post['p_title'].'" >
                     
                     <input type="submit"   name="submit" value="UPDATE" class="btn_submit">
@@ -76,7 +77,7 @@
            ';
            echo'
             <form action="edit.php?p='.$_GET['p'].'&p_type=content" method="post" enctype="multipart/form-data">
-                    <label class="p_label" style="color:#ee4266;width: 150px;">Post content</label>
+                    <label class="p_label" >Post content</label>
                     
                     <textarea name="content" id="froala-editor" style="display: inline;color: #ee4266;padding: 0px; margin-left: 5px;" class="input"  placeholder="Message.....">
                     '.$post['p_content'].'
@@ -89,7 +90,7 @@
            ';
            echo'
             <form action="edit.php?p='.$_GET['p'].'&p_type=category" method="post" enctype="multipart/form-data">
-                    <label class="p_label" style="color:#ee4266;width: 150px;">Post Category</label>
+                    <label class="p_label">Post Category</label>
                     
                     <input type="text" name="category" value="'.$post['p_c_id'].'"  id="b_value" placeholder="chose Category..." class="btn_input"  onclick="show_option()">
                     <div class="option" id="list">';
@@ -114,9 +115,9 @@
           ';
           echo'
                 <form action="edit.php?p='.$_GET['p'].'&p_type=tagg" method="post" enctype="multipart/form-data">
-                    <label class="p_label" style="color:#ee4266;width: 150px;">Post Tags</label>
+                    <label class="p_label" >Post Tags</label>
                     
-                    <input type="text" name="tagess" id="b_value2" value="'.$post['p_tags'].'"  class="btn_input2" placeholder="chose Tage..." onclick="show_option2()">
+                    <input type="text" name="tagess" id="b_value2" value="'.$post['p_tags'].'"  class="btn_input" placeholder="chose Tage..." onclick="show_option2()">
                         <div class="option2" id="list2">';
                             
                     
@@ -144,15 +145,15 @@
 
            echo'
             <form action="edit.php?p='.$_GET['p'].'&p_type=p_p_img" method="post" enctype="multipart/form-data">
-                <label class="p_label" style="color:#ee4266;width: 150px;">Post Image</label>
-                <input style="color:#ee4266;" type="file" name="fileToUpload" id="fileToUpload">
+                <label class="p_label" >Post Image</label>
+                <input style="line-height: 3px;" class="btn_input" type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit"   name="submit" value="UPDATE" class="btn_submit">
             </form> 
-            </div>
+            
            ';
 
       
-      
+             echo'</div> </div>';
       
         }
            // false get
@@ -177,7 +178,6 @@
     CKEDITOR.replace('content')
 </script>
 <script type='text/javascript' src="../../js/option.js"></script>
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+<?php include_once('../temp/footer.php');?>
 
 

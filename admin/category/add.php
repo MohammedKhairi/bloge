@@ -1,5 +1,5 @@
 
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 <?php
     if(isset($_POST['submit']))
     {
@@ -106,18 +106,29 @@
         
     }             
 ?>
-<form action="" method="post" enctype="multipart/form-data">
-    <label class="p_label" style="display: inline;">Category Title</label>
-    <input type="text" name="name" class="btn_input" >
+<div class="details" style="grid-template-columns: repeat(1,1fr);">
+<div class="recentorder">
+    <div class="cardHeader">
+        <h2>Add Category</h2>
+        <div class="btn_c">
+            <a href="show.php" class="btn"><ion-icon name="arrow-back"></ion-icon> Back</a>
+        </div>
+        
+    </div>
     <br>
-    <br>
-    <br>
-    <label class="p_label" style="display: inline;">Category Image</label>
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <br>
-    <br>
-    <br>
-    <input type="submit"   name="submit" value="UPDATE" class="btn_submit">
-</form> 
+    <form action="" method="post" enctype="multipart/form-data">
+        <label class="p_label" style="display: inline;">Category Title</label>
+        <input type="text" placeholder="Enter Category Title" name="name" class="btn_input" >
+        <br>
+        <br>
+        <br>
+        <label class="p_label" style="display: inline;">Category Image</label>
+        <input type="file" class="btn_input"style="line-height: 60px;" name="fileToUpload" id="fileToUpload">
+        <br>
+        <br>
+        <br>
+        <input type="submit"   name="submit" value="UPDATE" class="btn_submit">
+    </form> 
+</div>
 <script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+<?php include_once('../temp/footer.php');?>

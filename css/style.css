@@ -7,6 +7,7 @@
 body
 {
     font-family: 'Muli', sans-serif;
+    background: url(img/back.jpg);
     font-size: 16px;
     background: #d8d8d8;
     color: #505050;
@@ -361,9 +362,7 @@ margin-bottom: 2px;
     margin-bottom: 20px;
 }
 .section_title .title {
-    position: relative;
-    display: inline-block;
-    background-color: #d8d8d8;
+    text-align: center;
     font-size: 16px;
     text-transform: uppercase;
     margin-top: 0px;
@@ -371,11 +370,24 @@ margin-bottom: 2px;
     padding-right: 10px;
     z-index: 20;
 }
+.section_title::before {
+    content: "";
+    display: inline-block;
+    height: 2px;
+    background-color: #ee4266;
+    position: absolute;
+    left: 63%;
+    width: 35%;
+    right: 0;
+    top: 10px;
+    z-index: 10;
+}
 .section_title:after {
     content: "";
     display: inline-block;
     height: 2px;
-    background-color: #acacac;
+    width: 35%;
+    background-color: #ee4266;
     position: absolute;
     left: 0;
     right: 0;
@@ -386,7 +398,8 @@ margin-bottom: 2px;
 .post
 {
     width: 100%;
-
+    border: 1px solid #ccc;
+    padding: 10px;
     position: relative;
     margin-bottom: 30px;
     height: 200px;
@@ -401,13 +414,18 @@ margin-bottom: 2px;
 
 .post a.post_image img
 {
-    width: 100%;
     -webkit-transition: 1.6s -webkit-transform;
     transition: 1.6s -webkit-transform;
     transition: 1.6s transform;
     transition: 1.6s transform, 1.6s -webkit-transform;
     vertical-align: middle;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
     height: 100%;
+    object-fit: cover;
 
 }
 .post a.post_image img:hover
@@ -558,7 +576,49 @@ p.post_content
     color: #97989b;
     margin-left: 15px;
 }
+.B_content_l ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.B_content_l ul li
+{
+    padding: 15px 5px;
+    background-color: #ee4266;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    
+}
+.B_content_l ul li a
+{
+    display: block;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #f1f1f1;
+    transition: .3s;
 
+}
+.B_content_l ul li:hover
+{
+    background-color: #2a2f40;
+
+    
+}
+.B_content_l ul li a:hover,
+.B_content_l ul li a:hover span
+{
+    color: #ee4266;;
+}
+
+
+.B_content_l ul li a span
+{
+    float: right;
+    font-size: 14px;
+    color: #f1f1f1;
+    margin-left: 15px;
+}
 .newsletter_widget {
     position: relative;
     padding: 0px 30px 30px;

@@ -1,8 +1,6 @@
-<?php include_once('../template/header.php');?>
-
-
+<?php include_once('../temp/header.php');?>
 <?php
-/////////[add replay]/////////
+/////////[update]/////////
 if(isset($_POST['submit']))
    {
         if(isset($_POST['name']))
@@ -100,7 +98,17 @@ if(isset($_POST['submit']))
                 } 
 
             echo'
-                    <form action="" method="post" enctype="multipart/form-data">
+            <div class="details" style="grid-template-columns: repeat(1,1fr);">
+            <div class="recentorder">
+                    <div class="cardHeader">
+                        <h2>Add Tage</h2>
+                        <div class="btn_c">
+                            <a href="add.php" class="btn"><ion-icon name="arrow-back"></ion-icon> Back</a>
+                        </div>
+                    
+                    </div>
+                    <br>
+                <form action="" method="post" enctype="multipart/form-data">
                     <label class="p_label" style="display: inline;">Tag Title</label>
                     <input type="text" name="name" value="'.$tage.'"class="btn_input" >
                     <br>
@@ -109,6 +117,7 @@ if(isset($_POST['submit']))
                     <br>
                     <input type="submit"   name="submit" value="Update" class="btn_submit">
                 </form> 
+                </div>
            ';
 
        }
@@ -128,7 +137,6 @@ if(isset($_POST['submit']))
    }
 ?>
 
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+<?php include_once('../temp/footer.php');?>
 
 

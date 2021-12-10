@@ -1,5 +1,5 @@
 
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 <?php
     if(isset($_POST['submit']))
     {
@@ -54,8 +54,19 @@
         
     }             
 ?>
+<div class="details" style="grid-template-columns: repeat(1,1fr);">
+
+<div class="recentorder">
+        <div class="cardHeader">
+            <h2>Add Tage</h2>
+            <div class="btn_c">
+                <a href="show.php" class="btn"><ion-icon name="arrow-back"></ion-icon> Back</a>
+            </div>
+           
+        </div>
+        <br>
 <form action="" method="post" enctype="multipart/form-data">
-    <label class="p_label" style="display: inline;">Tag Title</label>
+    <label class="p_label" >Tag Title</label>
     <input type="text" name="name" class="btn_input" >
     <br>
     <br>
@@ -63,5 +74,6 @@
     <br>
     <input type="submit"   name="submit" value="ADD" class="btn_submit">
 </form> 
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+</div>
+
+<?php include_once('../temp/footer.php');?>

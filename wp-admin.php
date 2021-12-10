@@ -2,7 +2,7 @@
  session_start();
 if(isset($_SESSION['ustate']))
 {
-    header('Location: '.'admin/info/admin_info.php'); 
+    header('Location: '.'admin/info/dashboard.php'); 
     exit;
 }
 if(isset($_POST['submit']))
@@ -46,7 +46,7 @@ if(isset($_POST['submit']))
                 $_SESSION['email'] = $admin_info['u_email'];
                 $_SESSION['ustate'] = $admin_info['u_state'];
                 //echo $_SESSION['name'];exit;
-                header("location:"."admin/info/admin_info.php"); // Redirecting To Other Page
+                header("location:"."admin/info/dashboard.php"); // Redirecting To Other Page
                 exit;
             }
             else

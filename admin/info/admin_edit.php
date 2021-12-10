@@ -1,4 +1,4 @@
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 <?php
 
 if(isset($_POST['submit']))
@@ -168,31 +168,58 @@ if(isset($_POST['submit']))
 ?>
 <br>
 <br>
-<form action="" method="post">
-<label class="p_label">Name</label>
+<div class="details" style="grid-template-columns: repeat(1,1fr);">
 
-    <input type="text" value="<?=$_SESSION['name']?>" name="name" class="btn_input" >
-    <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
-</form>
-    <br><br>
-<form action="" method="post">
-<label class="p_label">Username</label>
+<div class="recentorder">
+        <div class="cardHeader">
+            <h2>Admin info</h2>
+            <div class="btn_c">
+                <a href="admin_edit.php" class="btn"><ion-icon name="reload"></ion-icon> Reload</a>
+            </div>
+           
+        </div>
+        <br>
+    <form action="" method="post">
+    <label class="p_label">Name</label>
 
-    <input type="text" value="<?=$_SESSION['uname']?>"name="username" class="btn_input" >
-    <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
-</form>
-    <br><br>
-<form action="" method="post">
-    <label class="p_label">Password</label>
-    <input type="password" value="<?=$_SESSION['upass']?>" name="password" class="btn_input">
-    <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
-</form>
-    <br><br>
-<form action="" method="post">
-<label class="p_label">Email</label>
-    <input type="email" value="<?=$_SESSION['email']?>" name="email" class="btn_input" >
-    <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
-</form> 
-    <br><br>
-<script type='text/javascript' src="../../js/panal_admin.js"></script>       
-<?php include_once('../template/footer.php');?>
+        <input type="text" value="<?=$_SESSION['name']?>" name="name" class="btn_input" >
+        <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
+    </form>
+        <br><br>
+    <form action="" method="post">
+    <label class="p_label">Username</label>
+
+        <input type="password" value="<?=$_SESSION['uname']?>"name="username" id="myInputname" class="btn_input" ><br>
+        <input type="checkbox" onclick="myFunction('myInputname')">Show Username <br>
+        <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
+    </form>
+        <br><br>
+    <form action="" method="post">
+        <label class="p_label">Password</label>
+        <input type="password" value="<?=$_SESSION['upass']?>" id="myInputpass" name="password" class="btn_input"><br>
+        <input type="checkbox" onclick="myFunction('myInputpass')">Show Password<br>
+
+        <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
+    </form>
+        <br><br>
+    <form action="" method="post">
+    <label class="p_label">Email</label>
+        <input type="email" value="<?=$_SESSION['email']?>" name="email" class="btn_input" >
+        <input type="submit"  name="submit" value="UPDATE" class="btn_submit">
+    </form> 
+</div>
+
+        <br><br>
+        
+<script>
+    function myFunction(name) {
+    var x = document.getElementById(name);
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+    }
+</script>
+   
+<?php include_once('../temp/footer.php');?>

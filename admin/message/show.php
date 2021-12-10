@@ -1,4 +1,4 @@
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 <?php
     //$_SESSION['info_admin_error'] = 'some think wrong!';
     //////////all data //////////////
@@ -13,37 +13,52 @@
     $message=select_all_messages($conn);
     $conn->close();
 ?>
-<table class="table" style="width: 100%;" >
-    <tr class="tr_border">
-        <th class="th_top">name</th>
-        <th class="th_top">Message Content</th>
-        <th class="th_top">Message Date</th>
-        <th class="th_top">Update</th>
-    </tr>
-    <?php 
-        // print  data
+<div class="details" style="grid-template-columns: repeat(1,1fr);">
+<!-- order Details List -->
+<div class="recentorder">
+        <div class="cardHeader">
+            <h2>Recent Message</h2>
+            <div class="btn_c">
+                <a href="show.php" class="btn"><ion-icon name="reload"></ion-icon> Reload</a>
+            </div>
+           
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>user name</td>
+                    <td>Message Content</td>
+                    <td>Message Date</td>
+                    <td>Operation</td>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+             // print  data
             // output data of each row
             while($mess = $message->fetch_assoc())
             {
                 echo'
-                <tr class="tr_border">
-                    <th class="th_center"style="padding: 10px 0px;">'.$mess['m_name'].'</th>
-                    <th class="th_center"style="padding: 10px 0px;">'.mb_strcut($mess['m_content'],0,40,"UTF-8").'</th>
-                    <th class="th_center"style="padding: 10px 0px;">'.date('M d,Y',strtotime($mess['m_date'])).'</th>
-                    <th class="th_center"style="padding: 10px 0px;">
-                    <a class="btn_edit" href="update.php?mess='.$mess['m_id'].'&type=replay">Replay</a>
-                    <a class="btn_delete" href="update.php?mess='.$mess['m_id'].'&type=delete">Delete</a>
-                    </th>
+                <tr>
+                    <td>'.$mess['m_name'].'</td>
+                    <td>'.mb_strcut($mess['m_content'],0,40,"UTF-8").'</td>
+                    <td>'.date('M d,Y',strtotime($mess['m_date'])).'</td>
+                    <td>
+                        <a href="update.php?mess='.$mess['m_id'].'&type=replay"><span class="status delivered">Reply</span></a>
+                        <a  href="update.php?mess='.$mess['m_id'].'&type=delete"><span class="status return">Delete</span></a>
+                    </td>
                 <tr>
                 ';
             }
 
 
        
-    ?>
+    ?>       
+            </tbody>
+        </table>
+    </div>
 
-</table>
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+</div>
+<?php include_once('../temp/footer.php');?>
 
 

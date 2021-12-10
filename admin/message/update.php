@@ -1,4 +1,4 @@
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 
 
 <?php
@@ -82,6 +82,17 @@ if(isset($_POST['submit']))
            $mess = $mess_one->fetch_assoc();
            echo
            '
+           <div class="details" style="grid-template-columns: repeat(1,1fr);">
+           <div class="recentorder">
+                <div class="cardHeader">
+                    <h2>Update Comment</h2>
+                    <div class="btn_c">
+                        <a href="add.php" class="btn"><ion-icon name="add"></ion-icon> Category</a>
+                    </div>
+                 
+                </div>
+                
+            <br>
            <p class="p_comm"> <span style="color:#ee4266;">Person Name : </span>'.$mess["m_name"].'</p>
            <p class="p_comm"> <span style="color:#ee4266;">Message content : </span>'.$mess["m_content"].'</p>
            <p class="p_comm"> <span style="color:#ee4266;">Message Date : </span>'.date('M d,Y',strtotime($mess['m_date'])).'</p>
@@ -95,19 +106,30 @@ if(isset($_POST['submit']))
                     '.$_SESSION['edit_error'].
                     '</p>';  
                     unset($_SESSION['edit_error']);     
+                    
                 } 
+                if(isset($_SESSION['edit_p_error']))
+                {
+                    echo '<p style="font-family: cursive;background-color: #81c75d;padding: 10px 0px;text-align: center;color: #fff;">
+                    '.$_SESSION['edit_p_error'].
+                    '</p>';  
+                    unset($_SESSION['edit_p_error']);     
+                    
+                }
             echo'
            <form action="" method="post">
                 <label style="width: 200px;" class="p_label">Replay Content</label>
                 <br>
                 <br>
 
-                <textarea name="content" id="" class="input"  placeholder="Message.....">
+                <textarea name="content" id="" style="height:150px;" class="btn_input"  placeholder="Message.....">
                 </textarea>
                 <br>
                 <br>
                 <input type="submit"   name="submit" value="REPLAY" class="btn_submit">
             </form> 
+        </div>
+
            ';
 
        }
@@ -127,7 +149,6 @@ if(isset($_POST['submit']))
    }
 ?>
 
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+<?php include_once('../temp/footer.php');?>
 
 

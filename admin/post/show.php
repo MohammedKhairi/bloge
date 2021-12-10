@@ -1,4 +1,4 @@
-<?php include_once('../template/header.php');?>
+<?php include_once('../temp/header.php');?>
 <?php
     //$_SESSION['info_admin_error'] = 'some think wrong!';
     //////////all data //////////////
@@ -10,66 +10,111 @@
     }
     //[[[[[[[[[[[[[ check the inputs ]]]]]]]]]]]]]
     include_once('../../database/post_model.php');
-    $posts=select_all_post($conn,"p_id,p_img,p_title,p_date");
+     //pagation
+     $number_e=num_posts('p_id',$conn);
+     $post_per_page=2;
+     if(isset($_GET['page']))
+     {
+         if($_GET['page']==NULL)
+             $page=1;
+         else
+             $page=$_GET['page'];
+     }
+     else
+     {
+         $page=1;
+     }
+     //post data
+    $posts=select_posts_admin('*','posts',$conn,$page);
 ?>
 <!-- search -->
  
-<div class="active" id="nav_search" style="background:#343a40;padding: 20px 0px;">
-    <form action="">
-        <input type="text" style="display:flex;" class="btn_input" name="search search_text" id="search_text" placeholder="Enter your Search... Title , Date">
-    </form>
-    <br>
-    <br>
-    <div id="result">
-       
-    </div>
-  <script type='text/javascript' src="../../js/search_post.js"></script>
-    
-</div>
+
 <!--  / search -->
-<hr>
-<table class="table" style="width: 100%;" >
-    <tr class="tr_border">
-        <th class="th_top">Post Image </th>
-        <th class="th_top">Post Title </th>
-        <th class="th_top">Post Date </th>
-        <th class="th_top">Update</th>
-    </tr>
-    <?php 
-        // print  data
-        if ($posts->num_rows > 0)
-        {
-            // output data of each row
-            while($post = $posts->fetch_assoc())
-            {
-                echo'
-                <tr class="tr_border">
-                    <th class="th_center"><img src="../../img/posts/'.$post['p_img'].'" width="50px" height="50px" style="margin-top: 7px;"></th>
-                    <th class="th_center">'.$post['p_title'].'</th>
-                    <th class="th_center"style="padding: 10px 0px;">'.date('M d,Y',strtotime($post['p_date'])).'</th>
-                    <th class="th_center">
-                    <a class="btn_edit" href="update.php?p='.$post['p_id'].'&type=edit">Edite</a>
-                    <a class="btn_delete" href="update.php?p='.$post['p_id'].'&type=delete">Delete</a>
-                    </th>
+<!--  Details List -->
+<div class="details" style="grid-template-columns: repeat(1,1fr);">
+<!-- order Details List -->
+<div class="recentorder">
+        <div class="cardHeader">
+            <h2>Recent Posts</h2>
+            <div class="btn_c">
+                <a href="add.php" class="btn"><ion-icon name="add"></ion-icon> Post</a>
+            </div>
+           
+        </div>
+        <br>
+       <?php 
+       //search Result
+       ?>
+        <div id="result">
+                        
+        </div>
+        <br>
+        <table>
+            <thead>
                 <tr>
-                ';
-            }
-        }
-        else
-        {
-            echo'
-            <tr>
-                <th collspan="3" class="th_center">No Category </th>
+                    <td>Image</td>
+                    <td>Title</td>
+                    <td>Date</td>
+                    <td>Operation</td>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+                // print  data
+                if ($posts->num_rows > 0)
+                {
+                    // output data of each row
+                    while($post = $posts->fetch_assoc())
+                    {
+                        echo'
+                        <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="../../img/posts/'.$post['p_img'].'" alt=""></div>
+                        </td>
+                            <td>'.$post['p_title'].'</td>
+                            <td>'.date('M d,Y',strtotime($post['p_date'])).'</td>
+                            <td>
+                            <a href="update.php?p='.$post['p_id'].'&type=edit"><span class="status delivered">Edit</span></a>
+                            <a  href="update.php?p='.$post['p_id'].'&type=delete"><span class="status return">Delete</span></a>
+                            
+                            </td>
+                        </tr>
+                        ';
+                    }
+                }
+                else
+                {
+                    echo'
+                    <tr>
+                        <th collspan="3" class="th_center">No Post </th>
 
-            </tr>
-            ';
-        }
+                    </tr>
+                    ';
+                }
 
-       
-    ?>
+            
+            ?>        
+            </tbody>
+        </table>
 
-</table>
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+        <br>
+        <div class="pagination">
+        <?php
+        
+            if($page>1)
+            echo'<a class="pa" href="show.php?page='.($page-1).'">&laquo;  Prev </a>';
+            $number_of_pags=ceil($number_e/ $post_per_page);
+            echo '<a class="pa_num" href="show.php?page='.$page.'"class="active">'.$page.'</a>';
+            if($page<$number_of_pags)
+            echo'<a class="pa" href="show.php?page='.($page+1).'">Next  &raquo;</a>';
+        //echo 'n-posts'.$number_e.'<br>';
+        //echo 'n-page'.$number_of_pags;
+        ?>
+        </div>
+    </div>
+
+</div>
+<?php include_once('../temp/footer.php');?>
 
 

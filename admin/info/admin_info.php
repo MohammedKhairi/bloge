@@ -1,5 +1,5 @@
 
-<?php include_once('../template/header.php');?>
+<?php include_once('../remp/header.php');?>
 
 <!-- ########[content]######### -->
 <div class="card">
@@ -36,5 +36,4 @@
 </div>
 
 <!-- #########[content]######## -->
-<script type='text/javascript' src="../../js/panal_admin.js"></script>
-<?php include_once('../template/footer.php');?>
+<?php include_once('../temp/footer.php');?>

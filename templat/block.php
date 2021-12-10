@@ -40,7 +40,7 @@
                 </div>
             <!-- block title -->
              <!-- block content -->
-                <div class="B_content">
+                <div class="B_content_l">
                     <ul>
                      <?php 
                          // print  data
@@ -133,13 +133,6 @@
 
            <!-- Popular   block -->
             <!-- block title -->
-            <div class="post_cat">
-                    <div class="section_title">
-                        <h2 class="title">
-                            Popular Posts
-                        </h2>
-                    </div>
-            </div>
             <!-- block title -->
 
             <!-- block content -->

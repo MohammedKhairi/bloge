@@ -40,7 +40,7 @@
           const chang = [".nav_bottom_cont ul li a","label.txtx",".newsletter_widget form p","h3.p_title a","a.pa_num","h3.p__title","p.post_content",".B_content ul li a"];
         //for anthor color
         const chang2 = ["h3.p__title","h3.footer_title"];
-           bg.style.background='#d8d8d8';
+           bg.style.background='url(img/back.jpg)';
 
            for (let i = 0; i < chang.length; i++) {
             $(chang[i]).removeClass('dark_mode');
