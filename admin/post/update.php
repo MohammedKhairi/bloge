@@ -55,6 +55,14 @@
            echo
            '<div class="details" style="grid-template-columns: repeat(1,1fr);" onload="enableediter();"">
            <div class="recentorder">
+           <div class="cardHeader">
+                <h2>Add Posts</h2>
+                <div class="btn_c">
+                    <a href="show.php" class="btn"><ion-icon name="arrow-back"></ion-icon> Back</a>
+                </div>
+            
+            </div>
+            <br>
            ';
            ///print error
            if(isset($_SESSION['edit_error']))

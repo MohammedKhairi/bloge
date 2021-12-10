@@ -333,6 +333,19 @@ input.to
     color: var(--white);
    
 }
+.btn_input{
+    /* float: left; */
+    height:4rem;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+    margin-bottom: 5px;
+  }
 .btn_c
 {
     position: relative;

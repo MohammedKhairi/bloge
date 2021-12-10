@@ -61,8 +61,8 @@
                             <td>'.$post['p_title'].'</td>
                             <td>'.date('M d,Y',strtotime($post['p_date'])).'</td>
                             <td>
-                            <a href="update.php?p='.$post['p_id'].'&type=edit"><span class="status delivered">Edit</span></a>
-                            <a  href="update.php?p='.$post['p_id'].'&type=delete"><span class="status return">Delete</span></a>
+                            <a href="../post/update.php?p='.$post['p_id'].'&type=edit"><span class="status delivered">Edit</span></a>
+                            <a  href="../post/update.php?p='.$post['p_id'].'&type=delete"><span class="status return">Delete</span></a>
                             
                             </td>
                         </tr>

@@ -261,8 +261,8 @@
      {
          $sql = "SELECT ".$item.
          " FROM u_message WHERE m_state=0";
-         $result = $conn->query($sql);
-         return $result->num_rows;
+         $result_m = $conn->query($sql);
+         return $result_m->num_rows;
  
      }
       //// get number of all comment

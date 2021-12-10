@@ -22,7 +22,7 @@
     $posts_number=number_posts("p_id",$conn);
     $number_comments=number_comments("co_id",$conn);
     $number_message=number_message("m_id",$conn);
-    $number_categories=number_categories("c_id",$conn);
+    $number_categories=number_categories("c_id",$conn); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
