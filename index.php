@@ -111,5 +111,18 @@
 
 
 <?php include_once('templat/block.php');?>
+<?php
+
+
+if(isset($_SESSION['menu']))
+{
+    $_SESSION['menu']="home";
+}
+else
+{
+    $_SESSION['menu']="home";
+
+}
+?>
 <?php include_once('templat/footer.php');?>
 

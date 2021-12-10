@@ -115,7 +115,7 @@
                                 
                     ?>
                     <form action="user/subscrip.php" method="post">
-                            <input type="email" name="email"class="input" placeholder="Enter Your Email">
+                            <input type="email" name="email"class="btn_input btn_input3" placeholder="Enter Your Email">
                             <button class="primary_button p_button" type="submit" name="submit">
                                 subscripe
                             </button>
@@ -132,8 +132,8 @@
         <div class="footer_botton">
             <div class="footer_botton_copy_right">
                     <p class="footer_about">                     
-                      Copyright ©   2019 All rights to the design Mohaemed al -iraqi with 
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> for all vesitoer in website
+                      Copyright ©   2019 All rights of design are Reserved For Mohaemed Khairi with 
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
                     </p>
             </div>
 
@@ -176,8 +176,32 @@
     }
     ?>
 
+    <?php
+    if(isset($_SESSION['menu']))
+    {
+      //  echo $_SESSION['w_mode'];
+        if($_SESSION['menu']=="home")
+        {
+           // echo'whit';
+            echo '<script>
+                chang_to_home();
+            </script>';
+        }
+        else
+        {
+            //  echo'black';
+            echo '<script>chang_to_cate("'.$_SESSION['menu'].'");</script>';
+
+        }
+    }
+    
+    
+    
+    ?>
+
 <!-- secript here -->
 <script type='text/javascript' src="js/menu.js"></script>
+<script type='text/javascript' src="js/menu_change.js"></script>
 
 <!-- secript here -->
 

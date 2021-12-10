@@ -78,13 +78,6 @@
 <!-- website all post section -->
     <div class="web_post">
         <!-- post title -->
-        <div class="post_cat">
-            <div class="section_title">
-                <h2 class="title">
-                    all post
-                </h2>
-            </div>
-        </div>
         <!-- post title -->
        
         <!-- ALL POSTS -->
@@ -121,7 +114,7 @@
                 </div>';
                
             }
-                
+               
         ?>
         <!-- /post --> 
 <!-- ######################################## -->

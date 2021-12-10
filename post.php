@@ -44,7 +44,7 @@
         <?php
             echo'
                 <figure style="width: 100%; float: none; margin: auto">
-                    <img src="img/posts/'.$rowp['p_img'].'" alt="" srcset="" width="100%;">
+                    <img src="img/posts/'.$rowp['p_img'].'"style="height: 30rem;" height: 30rem; width="100%;">
                     <ul class="post_meta">
                         <li><a href="">Mohammed</a></li>
                         <li>'.date('M d,Y',strtotime($rowp["p_date"])).'</li>
@@ -61,9 +61,9 @@
 
                 <!-- post content -->
 
-            <p>
+            <div class="po_content">
             '.$rowp['p_content'].'
-            </p>
+            </div>
                 <!--  / post content -->
             ';
         ?>
@@ -177,10 +177,10 @@
     ?>
     <br>
     <form action="user/comment.php" method="post">
-           <input type="text" name="name" class="btn_input input" placeholder=" pless Enter your name....." style="float:left;height:auto;" > <br>
+           <input type="text" name="name" class="btn_input btn_input5" placeholder=" pless Enter your name....." > <br>
             <br>
             <br>
-           <textarea name="content" id="" class="input"  placeholder="Message.....">
+           <textarea name="content" id="" style="height:150px;" class="btn_input btn_input4"  placeholder="Message.....">
            </textarea>
 
            <input type="hidden" id="custId" name="p" value="<?php echo $_GET['p']?>">

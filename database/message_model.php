@@ -61,12 +61,15 @@ function check_email($conn,$email)
 // get all message for one user 
 function get_user_message($conn,$id)
 {
-    $sql = "SELECT m_content,m_name,m_date,m_id
+    $sql = "SELECT m_content,m_name,m_date,m_id,rm_content,rm_date
       FROM u_message
-      INNER JOIN users ON users.u_id = u_message.m_u_id
+      LEFT JOIN users ON users.u_id = u_message.m_u_id
+      LEFT JOIN replay_m ON replay_m.rm_m_id = u_message.m_id
+
       WHERE u_message.m_u_id = $id ORDER BY m_id DESC
     ";
-    // echo $sql;exit;
+    
+     //echo $sql;exit;
     $result = $conn->query($sql);
    // print_r($result);exit;
     if ($result->num_rows>0)

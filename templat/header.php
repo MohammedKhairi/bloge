@@ -27,6 +27,32 @@ if(isset($_SESSION['u_id'],$_SESSION['name'],$_SESSION['uname'], $_SESSION['upas
 
 ?>
 
+<?php
+  if(isset($_GET['cate']))
+  {
+    if($_GET['cate']!=NULL)
+    {
+        include_once('database/category_model.php'); 
+        $cate_c=select_one_category("c_title",$conn,$_GET['cate']);
+        while($row = $cate_c->fetch_assoc())
+        {
+            if(isset($_SESSION['menu'])) 
+                {
+                    $_SESSION['menu'] =$row["c_title"];
+                }
+                else
+                {
+                    $_SESSION['menu'] =$row["c_title"];
+                }
+        }
+    }
+  }
+ 
+  
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +64,7 @@ if(isset($_SESSION['u_id'],$_SESSION['name'],$_SESSION['uname'], $_SESSION['upas
     <!--JQuery version-->
 	<script src="js/jquery-3.4.1.min.js"></script>
     <script type='text/javascript' src="js/dark.js"></script>
+    <script type='text/javascript' src="js/menu_change.js"></script>
     
     <title>Blog</title>
 </head>
@@ -71,8 +98,12 @@ if(isset($_SESSION['u_id'],$_SESSION['name'],$_SESSION['uname'], $_SESSION['upas
                          {
                             $_SESSION['w_mode']="defult";
                          }
-                        echo'<li onclick="chang_to_defult();" id="defult" style=" background: #28a745;">defult Mode</li>';
-                        echo'<li onclick="chang_to_dark();" id="dark" style=" background: #3B5998;">Dark Mode</li>';
+                        echo'<li onclick="chang_to_defult();" id="defult">
+                        <i class="fa fa-sun-o" ></i>
+                        </li>';
+                        echo'<li onclick="chang_to_dark();" id="dark">
+                        <i class="fa fa-moon-o" ></i>
+                        </li>';
 
                         ?>
                         
@@ -86,16 +117,17 @@ if(isset($_SESSION['u_id'],$_SESSION['name'],$_SESSION['uname'], $_SESSION['upas
                 </div>
             </div>
         </div>
-        <div id="modey">
-                                
-         </div>
+                         
         <!-- HEDER TOP -->
 
         <!-- HEDER BOTTOM -->
         <div class="nav_bottom">
             <div class="nav_bottom_cont">
                 <ul>
-                <li><a href="index.php" id="home">Home</a></li>
+                <li style="display:inline-block;width:6rem;" class="home">
+                    <i style="float:left;color:#ee4266;font-size:20px;" class="fa fa-home"></i>
+                    <a href="index.php" id="home">Home</a>
+                </li>
                 <?php 
                     // print  data
                         if ($categories->num_rows > 0)
@@ -104,7 +136,7 @@ if(isset($_SESSION['u_id'],$_SESSION['name'],$_SESSION['uname'], $_SESSION['upas
                             while($row = $categories->fetch_assoc())
                             {
                                 echo'
-                                <li><a class="nav_dr nav_df" href="category.php?cate='.$row["c_id"].'"'.' id="'.$row["c_title"].'">'.$row["c_title"].'</a></li>
+                                <li class="'.$row["c_title"].'"><a on class="nav_dr nav_df " href="category.php?cate='.$row["c_id"].'"'.' id="'.$row["c_title"].'">'.$row["c_title"].'</a></li>
                                 ';
                             }
                         }

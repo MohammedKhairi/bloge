@@ -9,7 +9,7 @@
 }
 :root
 {
-    --blue:#287bff;
+    --blue:#ee4266;
     --white:#fff;
     --gray:#f5f5f5;
     --black1:#222;
@@ -611,17 +611,7 @@ input.to
     background: #5029bc;
 
   }
-  .btn_input{
-    height:4rem;
-    width: 90%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    background: #F0F1F8;
-    border-radius: 6px;
-    padding: 0 15px;
-    resize: none;
-  }
+  
   .p_label
   {
     font-weight: 600;

@@ -114,10 +114,11 @@
                         unset($_SESSION['error_message']);
                                 
                     ?>
-                    <input type="text" name="name" class="input" value="<?php if(isset($_SESSION['name'])){echo$_SESSION['name'];}?>" placeholder="Enter Your name">
+                    <input type="text" name="name" class="btn_input btn_input6" value="<?php if(isset($_SESSION['name'])){echo$_SESSION['name'];}?>" placeholder="Enter Your name">
                     <label class="txtx" for="w3review">Enter Your Message :</label>
-                    <textarea name="content" class="inputs" rows="4" cols="50">
+                    <textarea name="content" class="btn_input btn_input2" style="height:150px;"rows="4" cols="50">
                     </textarea>
+                    <br>
                     <button class="primary_button" name="submit" type="submit">
                         SEND
                     </button>
